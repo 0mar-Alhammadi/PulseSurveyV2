@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PulseSurveyV2", "PulseSurveyV2.csproj", "{377F133D-2D7C-495E-B45C-A0FA1AA2F9AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PulseSurveyV2.Test", "PulseSurveyV2.Test\PulseSurveyV2.Test.csproj", "{B76901A0-5977-4CE2-96D2-4E2D14F39748}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{377F133D-2D7C-495E-B45C-A0FA1AA2F9AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{377F133D-2D7C-495E-B45C-A0FA1AA2F9AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{377F133D-2D7C-495E-B45C-A0FA1AA2F9AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{377F133D-2D7C-495E-B45C-A0FA1AA2F9AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B76901A0-5977-4CE2-96D2-4E2D14F39748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B76901A0-5977-4CE2-96D2-4E2D14F39748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B76901A0-5977-4CE2-96D2-4E2D14F39748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B76901A0-5977-4CE2-96D2-4E2D14F39748}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
