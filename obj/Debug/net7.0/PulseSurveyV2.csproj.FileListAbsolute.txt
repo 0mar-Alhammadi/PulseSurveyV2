@@ -277,3 +277,9 @@
 /Users/omar.alhammadi/MiscCode/PulseSurveyV2/obj/Debug/net7.0/PulseSurveyV2.pdb
 /Users/omar.alhammadi/MiscCode/PulseSurveyV2/obj/Debug/net7.0/PulseSurveyV2.genruntimeconfig.cache
 /Users/omar.alhammadi/MiscCode/PulseSurveyV2/obj/Debug/net7.0/ref/PulseSurveyV2.dll
+/Users/omar.alhammadi/MiscCode/PulseSurveyV2/bin/Debug/net7.0/Castle.Core.dll
+/Users/omar.alhammadi/MiscCode/PulseSurveyV2/bin/Debug/net7.0/Moq.dll
+/Users/omar.alhammadi/MiscCode/PulseSurveyV2/bin/Debug/net7.0/xunit.abstractions.dll
+/Users/omar.alhammadi/MiscCode/PulseSurveyV2/bin/Debug/net7.0/xunit.assert.dll
+/Users/omar.alhammadi/MiscCode/PulseSurveyV2/bin/Debug/net7.0/xunit.core.dll
+/Users/omar.alhammadi/MiscCode/PulseSurveyV2/bin/Debug/net7.0/xunit.execution.dotnet.dll

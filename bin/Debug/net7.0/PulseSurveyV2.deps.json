@@ -13,7 +13,9 @@
           "Microsoft.EntityFrameworkCore.InMemory": "7.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.0",
-          "Swashbuckle.AspNetCore": "6.4.0"
+          "Moq": "4.20.69",
+          "Swashbuckle.AspNetCore": "6.4.0",
+          "xunit": "2.5.1-pre.20"
         },
         "runtime": {
           "PulseSurveyV2.dll": {}
@@ -50,6 +52,17 @@
           "lib/netstandard2.0/Azure.Identity.dll": {
             "assemblyVersion": "1.6.0.0",
             "fileVersion": "1.600.22.20503"
+          }
+        }
+      },
+      "Castle.Core/5.1.1": {
+        "dependencies": {
+          "System.Diagnostics.EventLog": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Castle.Core.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.1.0"
           }
         }
       },
@@ -1345,6 +1358,17 @@
           }
         }
       },
+      "Moq/4.20.69": {
+        "dependencies": {
+          "Castle.Core": "5.1.1"
+        },
+        "runtime": {
+          "lib/net6.0/Moq.dll": {
+            "assemblyVersion": "4.20.69.0",
+            "fileVersion": "4.20.69.0"
+          }
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.1",
@@ -1765,6 +1789,7 @@
         }
       },
       "System.Diagnostics.DiagnosticSource/5.0.0": {},
+      "System.Diagnostics.EventLog/6.0.0": {},
       "System.Diagnostics.Tools/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.1",
@@ -2397,6 +2422,63 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0"
         }
+      },
+      "xunit/2.5.1-pre.20": {
+        "dependencies": {
+          "xunit.analyzers": "1.3.0-pre.13",
+          "xunit.assert": "2.5.1-pre.20",
+          "xunit.core": "2.5.1-pre.20"
+        }
+      },
+      "xunit.abstractions/2.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/xunit.abstractions.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "xunit.analyzers/1.3.0-pre.13": {},
+      "xunit.assert/2.5.1-pre.20": {
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "runtime": {
+          "lib/netstandard1.1/xunit.assert.dll": {
+            "assemblyVersion": "2.5.1.0",
+            "fileVersion": "2.5.1.0"
+          }
+        }
+      },
+      "xunit.core/2.5.1-pre.20": {
+        "dependencies": {
+          "xunit.extensibility.core": "2.5.1-pre.20",
+          "xunit.extensibility.execution": "2.5.1-pre.20"
+        }
+      },
+      "xunit.extensibility.core/2.5.1-pre.20": {
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "xunit.abstractions": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.1/xunit.core.dll": {
+            "assemblyVersion": "2.5.1.0",
+            "fileVersion": "2.5.1.0"
+          }
+        }
+      },
+      "xunit.extensibility.execution/2.5.1-pre.20": {
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "xunit.extensibility.core": "2.5.1-pre.20"
+        },
+        "runtime": {
+          "lib/netstandard1.1/xunit.execution.dotnet.dll": {
+            "assemblyVersion": "2.5.1.0",
+            "fileVersion": "2.5.1.0"
+          }
+        }
       }
     }
   },
@@ -2419,6 +2501,13 @@
       "sha512": "sha512-EycyMsb6rD2PK9P0SyibFfEhvWWttdrYhyPF4f41uzdB/44yQlV+2Wehxyg489Rj6gbPvSPgbKq0xsHJBhipZA==",
       "path": "azure.identity/1.6.0",
       "hashPath": "azure.identity.1.6.0.nupkg.sha512"
+    },
+    "Castle.Core/5.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rpYtIczkzGpf+EkZgDr9CClTdemhsrwA/W5hMoPjLkRFnXzH44zDLoovXeKtmxb1ykXK9aJVODSpiJml8CTw2g==",
+      "path": "castle.core/5.1.1",
+      "hashPath": "castle.core.5.1.1.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",
@@ -2924,6 +3013,13 @@
       "path": "mono.texttemplating/2.2.1",
       "hashPath": "mono.texttemplating.2.2.1.nupkg.sha512"
     },
+    "Moq/4.20.69": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8P/oAUOL8ZVyXnzBBcgdhTsOD1kQbAWfOcMI7KDQO3HqQtzB/0WYLdnMa4Jefv8nu/MQYiiG0IuoJdvG0v0Nig==",
+      "path": "moq/4.20.69",
+      "hashPath": "moq.4.20.69.nupkg.sha512"
+    },
     "NETStandard.Library/1.6.1": {
       "type": "package",
       "serviceable": true,
@@ -3252,6 +3348,13 @@
       "sha512": "sha512-tCQTzPsGZh/A9LhhA6zrqCRV4hOHsK90/G7q3Khxmn6tnB1PuNU0cRaKANP2AWcF9bn0zsuOoZOSrHuJk6oNBA==",
       "path": "system.diagnostics.diagnosticsource/5.0.0",
       "hashPath": "system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512"
+    },
+    "System.Diagnostics.EventLog/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lcyUiXTsETK2ALsZrX+nWuHSIQeazhqPphLfaRxzdGaG93+0kELqpgEHtwWOlQe7+jSFnKwaCAgL4kjeZCQJnw==",
+      "path": "system.diagnostics.eventlog/6.0.0",
+      "hashPath": "system.diagnostics.eventlog.6.0.0.nupkg.sha512"
     },
     "System.Diagnostics.Tools/4.3.0": {
       "type": "package",
@@ -3728,6 +3831,55 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "xunit/2.5.1-pre.20": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-O6/0Fdp2EtEwJKj9eJx159OljIUr3grAJP94Pdqay63xZpZmUF5NSv6GqpUBw8LAeUt0s9TEZ9xaZyGatworbQ==",
+      "path": "xunit/2.5.1-pre.20",
+      "hashPath": "xunit.2.5.1-pre.20.nupkg.sha512"
+    },
+    "xunit.abstractions/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pot1I4YOxlWjIb5jmwvvQNbTrZ3lJQ+jUGkGjWE3hEFM0l5gOnBWS+H3qsex68s5cO52g+44vpGzhAt+42vwKg==",
+      "path": "xunit.abstractions/2.0.3",
+      "hashPath": "xunit.abstractions.2.0.3.nupkg.sha512"
+    },
+    "xunit.analyzers/1.3.0-pre.13": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7RxG0qfgt9pf4DGvfKSLeAkyWxJelye+PYAVoiwBS8P4oG/v+lrWqzX6qwiEyQvVVi9ebQaQs3j4Kw8cWXWd5g==",
+      "path": "xunit.analyzers/1.3.0-pre.13",
+      "hashPath": "xunit.analyzers.1.3.0-pre.13.nupkg.sha512"
+    },
+    "xunit.assert/2.5.1-pre.20": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UOa6MTIazwz7ztv3tK4+ZOmlKVgTQi5p6S66ALiny8bvd/n+ogWrZT5onoRtrenuQXE2qPBbj1stUdjXG7FIxg==",
+      "path": "xunit.assert/2.5.1-pre.20",
+      "hashPath": "xunit.assert.2.5.1-pre.20.nupkg.sha512"
+    },
+    "xunit.core/2.5.1-pre.20": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WBEuslfI7fyI26UZk0+wHJFBYvdWb9ALG+MAtymL2DGhx2mTfiK3QmXh3fXGdWAcu8AjpJHOiR3cWehf9wWAWw==",
+      "path": "xunit.core/2.5.1-pre.20",
+      "hashPath": "xunit.core.2.5.1-pre.20.nupkg.sha512"
+    },
+    "xunit.extensibility.core/2.5.1-pre.20": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8mN2q98VSxkKl9mvLvgL/WdEcwsOCVGPSLAZzBzuYjHrfmA96H2Rt9gKwJv/mnsgZ0pBc0fpmbA3lQp9tXjfuw==",
+      "path": "xunit.extensibility.core/2.5.1-pre.20",
+      "hashPath": "xunit.extensibility.core.2.5.1-pre.20.nupkg.sha512"
+    },
+    "xunit.extensibility.execution/2.5.1-pre.20": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uwfZrqS5gpUcCgD8YJ47CHdL9N5zXT/1qPOsrj473NilwoF6r6evsYWL7ii0KsTZI8MQAkbHhoPJzSv4qSRroQ==",
+      "path": "xunit.extensibility.execution/2.5.1-pre.20",
+      "hashPath": "xunit.extensibility.execution.2.5.1-pre.20.nupkg.sha512"
     }
   }
 }
