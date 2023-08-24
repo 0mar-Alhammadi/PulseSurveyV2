@@ -66,7 +66,6 @@ public class AnswerControllerTests
             Assert.Equal(existingAnswer.SurveyId, returnValue.SurveyId);
             Assert.Equal(existingAnswer.UserId, returnValue.UserId);
             Assert.Equal(existingAnswer.AnswerRating, returnValue.AnswerRating);
-            // ... Add more assertions if needed
         }
 
         [Fact]
