@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using PulseSurveyV2.Abstract;
 
 namespace PulseSurveyV2.Models;
 
@@ -8,6 +9,7 @@ public class UnifiedContext : DbContext
         : base(options)
     {
     }
+    
     
     public DbSet<Survey> Surveys { get; set; } = null!;
     public DbSet<Answer> Answers { get; set; } = null!;

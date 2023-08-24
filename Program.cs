@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PulseSurveyV2.Models;
+using PulseSurveyV2.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
