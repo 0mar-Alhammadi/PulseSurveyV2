@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/PulseSurveyV2.props" />
+</Project>
