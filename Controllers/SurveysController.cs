@@ -64,7 +64,7 @@ namespace PulseSurveyV2.Controllers
               UserId = surveyDto.UserId,
               SurveyTitle = surveyDto.SurveyTitle,
               SurveyQuestion = surveyDto.SurveyQuestion,
-              SurveyDate = DateTime.Now
+              SurveyDate = DateTime.UtcNow
           };
             _context.Surveys.Add(survey);
             await _context.SaveChangesAsync();

@@ -32,12 +32,12 @@ public class AnswerControllerTests
             var result = await controller.PostAnswer(answerDto);
 
             // Assert
-            var createdAtActionResult = Assert.IsType<CreatedAtActionResult>(result);
-            var returnValue = Assert.IsType<Answer>(createdAtActionResult.Value);
+            var createdAtActionResult = Assert.IsType<ActionResult<AnswerDTO>>(result);
+            var returnValue = Assert.IsType<AnswerDTO>(createdAtActionResult.Value);
 
-            Assert.Equal(answerDto.SurveyId, returnValue.SurveyId);
-            Assert.Equal(answerDto.UserId, returnValue.UserId);
-            Assert.Equal(answerDto.AnswerRating, returnValue.AnswerRating);
+            Assert.Equal(1, returnValue.SurveyId);
+            Assert.Equal(1, returnValue.UserId);
+            Assert.Equal(5, returnValue.AnswerRating);
         }
     }
 
