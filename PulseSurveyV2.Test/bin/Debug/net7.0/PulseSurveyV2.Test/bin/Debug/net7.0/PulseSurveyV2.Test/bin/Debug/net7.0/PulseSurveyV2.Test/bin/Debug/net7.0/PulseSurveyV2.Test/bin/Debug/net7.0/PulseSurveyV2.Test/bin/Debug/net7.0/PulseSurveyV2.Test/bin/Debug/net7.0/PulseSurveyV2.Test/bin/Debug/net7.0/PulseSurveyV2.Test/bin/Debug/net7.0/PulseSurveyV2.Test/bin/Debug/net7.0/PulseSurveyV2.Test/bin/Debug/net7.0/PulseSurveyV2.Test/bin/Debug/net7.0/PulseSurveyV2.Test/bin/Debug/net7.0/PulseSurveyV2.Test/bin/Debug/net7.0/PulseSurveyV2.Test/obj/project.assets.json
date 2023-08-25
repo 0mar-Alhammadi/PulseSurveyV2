@@ -4183,6 +4183,7 @@
           "Microsoft.AspNetCore.OpenApi": "7.0.5",
           "Microsoft.EntityFrameworkCore.InMemory": "7.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0",
+          "Microsoft.NET.Test.Sdk": "17.7.1",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.0",
           "Moq": "4.20.69",
           "Swashbuckle.AspNetCore": "6.4.0",
