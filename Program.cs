@@ -7,9 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<UnifiedContext>(opt => opt.UseInMemoryDatabase("AnswerList"));
-builder.Services.AddDbContext<UnifiedContext>(opt => opt.UseInMemoryDatabase("AnswerList"));
-builder.Services.AddDbContext<UnifiedContext>(opt => opt.UseInMemoryDatabase("SurveyList"));
+builder.Services.AddDbContext<UnifiedContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

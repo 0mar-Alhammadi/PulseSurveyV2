@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using PulseSurveyV2.Abstract;
 
 namespace PulseSurveyV2.Models;
 
