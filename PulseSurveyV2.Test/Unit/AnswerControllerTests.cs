@@ -5,11 +5,19 @@ using Microsoft.EntityFrameworkCore;
 using PulseSurveyV2.Controllers;
 using PulseSurveyV2.Models;
 using PulseSurveyV2.Interfaces;
+using Xunit.Abstractions;
 
 namespace PulseSurveyV2.Tests.Unit;
 
 public class AnswerControllerTests
 {
+    private readonly ITestOutputHelper _testOutputHelper;
+
+    public AnswerControllerTests(ITestOutputHelper testOutputHelper)
+    {
+        _testOutputHelper = testOutputHelper;
+    }
+
     [Fact]
     public async Task PostAnswer_ValidInput_ReturnsCreatedAtAction()
     {
@@ -42,35 +50,46 @@ public class AnswerControllerTests
     }
 
 
-    
-     [Fact]
-        public async Task GetAnswer_ExistingId_ReturnsAnswer()
+
+    [Fact]
+    public async Task GetAnswer_ExistingId_ReturnsAnswer()
+    {
+        // Arrange
+        // var existingAnswer = new Answer { AnswerId = 1, SurveyId = 1, UserId = 1, AnswerRating = 5 };
+        //
+        // var mockDbSet = new Mock<DbSet<Answer>>();
+        // mockDbSet.Setup(dbSet => dbSet.FindAsync(It.IsAny<long>()))
+        //          .ReturnsAsync((long id) => existingAnswer.AnswerId == id ? existingAnswer : null);
+
+        var options = new DbContextOptionsBuilder<UnifiedContext>()
+            .UseInMemoryDatabase(databaseName: "TestDb")
+            .Options;
+
+        using (var context = new UnifiedContext(options))
         {
-            // Arrange
-            var existingAnswer = new Answer { AnswerId = 1, SurveyId = 1, UserId = 1, AnswerRating = 5 };
+
+            var controller = new AnswersController(context);
             
-            var mockDbSet = new Mock<DbSet<Answer>>();
-            mockDbSet.Setup(dbSet => dbSet.FindAsync(It.IsAny<long>()))
-                     .ReturnsAsync((long id) => existingAnswer.AnswerId == id ? existingAnswer : null);
-     
-            var mockContext = new Mock<UnifiedContext>();
-            mockContext.Setup(context => context.Answers).Returns(mockDbSet.Object);
-     
-            var controller = new AnswersController(mockContext.Object);
-     
+            var existingAnswer = new Answer { AnswerId = 1, SurveyId = 1, UserId = 1, AnswerRating = 5 };
+            context.Answers.Add(existingAnswer);
+            await context.SaveChangesAsync();
+            
             // Act
             var result = await controller.GetAnswer(existingAnswer.AnswerId);
-     
+            _testOutputHelper.WriteLine(result.ToString());
+
             // Assert
-            var actionResult = Assert.IsType<ActionResult<Answer>>(result);
-            var okResult = Assert.IsType<OkObjectResult>(actionResult.Result);
-            var returnValue = Assert.IsType<Answer>(okResult.Value);
-     
+            //var actionResult = Assert.IsType<ActionResult<Answer>>(result); 
+            //var okResult = Assert.IsType<OkObjectResult>(actionResult.Result);
+            var createdAtActionResult = Assert.IsType<CreatedAtActionResult>(result.Result);
+            var returnValue = Assert.IsType<Answer>(createdAtActionResult.Value);
+
             Assert.Equal(existingAnswer.SurveyId, returnValue.SurveyId);
             Assert.Equal(existingAnswer.UserId, returnValue.UserId);
             Assert.Equal(existingAnswer.AnswerRating, returnValue.AnswerRating);
         }
-     //
+    }
+    
      //    [Fact]
      //    public async Task GetAnswer_NonExistingId_ReturnsNotFound()
      //    {

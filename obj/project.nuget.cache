@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rAjFoeaZX5iYCG8A5uIvyO563zdjF5H+P1xH8kxs5BdGhZFPmUGYuJNonBklJtqpVnrOIF/rQCc516zEoWRDHg==",
+  "dgSpecHash": "v9XLZg+sG9fdyqf28Ebngn+8f5bQOBykzWW8odflYhkEE3QqQq1shSwac8PDZq/xdqbYTDbM+iboG7Fm5IkDdA==",
   "success": true,
   "projectFilePath": "/Users/omar.alhammadi/MiscCode/PulseSurveyV2/PulseSurveyV2.csproj",
   "expectedPackageFiles": [
@@ -42,7 +42,7 @@
     "/Users/omar.alhammadi/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.10/microsoft.entityframeworkcore.analyzers.7.0.10.nupkg.sha512",
     "/Users/omar.alhammadi/.nuget/packages/microsoft.entityframeworkcore.design/7.0.0/microsoft.entityframeworkcore.design.7.0.0.nupkg.sha512",
     "/Users/omar.alhammadi/.nuget/packages/microsoft.entityframeworkcore.inmemory/7.0.10/microsoft.entityframeworkcore.inmemory.7.0.10.nupkg.sha512",
-    "/Users/omar.alhammadi/.nuget/packages/microsoft.entityframeworkcore.relational/7.0.0/microsoft.entityframeworkcore.relational.7.0.0.nupkg.sha512",
+    "/Users/omar.alhammadi/.nuget/packages/microsoft.entityframeworkcore.relational/7.0.5/microsoft.entityframeworkcore.relational.7.0.5.nupkg.sha512",
     "/Users/omar.alhammadi/.nuget/packages/microsoft.entityframeworkcore.sqlserver/7.0.0/microsoft.entityframeworkcore.sqlserver.7.0.0.nupkg.sha512",
     "/Users/omar.alhammadi/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "/Users/omar.alhammadi/.nuget/packages/microsoft.extensions.caching.abstractions/7.0.0/microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
@@ -86,6 +86,8 @@
     "/Users/omar.alhammadi/.nuget/packages/moq/4.20.69/moq.4.20.69.nupkg.sha512",
     "/Users/omar.alhammadi/.nuget/packages/netstandard.library/1.6.1/netstandard.library.1.6.1.nupkg.sha512",
     "/Users/omar.alhammadi/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
+    "/Users/omar.alhammadi/.nuget/packages/npgsql/7.0.4/npgsql.7.0.4.nupkg.sha512",
+    "/Users/omar.alhammadi/.nuget/packages/npgsql.entityframeworkcore.postgresql/7.0.4/npgsql.entityframeworkcore.postgresql.7.0.4.nupkg.sha512",
     "/Users/omar.alhammadi/.nuget/packages/nuget.common/6.3.1/nuget.common.6.3.1.nupkg.sha512",
     "/Users/omar.alhammadi/.nuget/packages/nuget.configuration/6.3.1/nuget.configuration.6.3.1.nupkg.sha512",
     "/Users/omar.alhammadi/.nuget/packages/nuget.dependencyresolver.core/6.3.1/nuget.dependencyresolver.core.6.3.1.nupkg.sha512",
