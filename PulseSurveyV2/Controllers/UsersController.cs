@@ -1,45 +1,47 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using PulseSurveyV2.Models;
 
 namespace PulseSurveyV2.Controllers
 {
+    using Threenine.Data;
+
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly UnifiedContext _context;
+        private readonly IUnitOfWork<UnifiedContext> _uow;
 
-        public UsersController(UnifiedContext context)
+        public UsersController(IUnitOfWork<UnifiedContext> uow)
         {
-            _context = context;
+            _uow = uow;
         }
 
         // GET: api/Users
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        public async Task<ActionResult<IList<User>>> GetUsers()
         {
-          if (_context.Users == null)
-          {
-              return NotFound();
-          }
-            return await _context.Users.ToListAsync();
+            var repository = _uow.GetRepositoryAsync<User>();
+            if (repository == null)
+            {
+                return NotFound();
+            }
+
+            var users = await repository.GetListAsync();
+
+            return Ok(users.Items);
         }
-        
+
         // GET: api/Users/5
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(long id)
         {
-          if (_context.Users == null)
-          {
-              return NotFound();
-          }
-            var user = await _context.Users.FindAsync(id);
+            var repository = _uow.GetRepositoryAsync<User>();
+            if (repository == null)
+            {
+                return NotFound();
+            }
+
+            var user = await repository.SingleOrDefaultAsync(u => u.UserId == id);
 
             if (user == null)
             {
@@ -48,31 +50,29 @@ namespace PulseSurveyV2.Controllers
 
             return user;
         }
-        
+
         // POST: api/Users
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<UserDTO>> PostUser(UserDTO userDto)
         {
-          if (_context.Users == null)
-          {
-              return Problem("Entity set 'UnifiedContext.Users'  is null.");
-          }
+            var repository = _uow.GetRepositoryAsync<User>();
+
+            if (repository == null)
+            {
+                return Problem("Entity set 'UnifiedContext.Users'  is null.");
+            }
+
             var user = new User
             {
                 UserName = userDto.UserName,
-                IsCreator = userDto.IsCreator
+                IsCreator = userDto.IsCreator,
             };
 
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            await repository.InsertAsync(user);
+            await _uow.CommitAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.UserId }, userDto);
-        }
-        
-        private bool UserExists(long id)
-        {
-            return (_context.Users?.Any(e => e.UserId == id)).GetValueOrDefault();
+            return CreatedAtAction("GetUser", new {id = user.UserId}, userDto);
         }
     }
 }
