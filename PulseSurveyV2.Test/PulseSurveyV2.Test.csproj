@@ -23,7 +23,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\PulseSurveyV2.csproj" />
       <ProjectReference Include="..\PulseSurveyV2\PulseSurveyV2.csproj" />
     </ItemGroup>
 

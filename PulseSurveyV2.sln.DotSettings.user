@@ -1,11 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=81fa685c_002Dd10c_002D495c_002Dbf8c_002D8febe6c28921/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Tests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;Or&gt;
-    &lt;ProjectFile&gt;B76901A0-5977-4CE2-96D2-4E2D14F39748/d:Unit/f:AnswerControllerTests.cs&lt;/ProjectFile&gt;
-    &lt;TestAncestor&gt;
-      &lt;TestId&gt;xUnit::377F133D-2D7C-495E-B45C-A0FA1AA2F9AF::net7.0::PulseSurveyV2.Tests.Unit.AnswerControllerTests.GetAnswer_ExistingId_ReturnsAnswer&lt;/TestId&gt;
-      &lt;TestId&gt;xUnit::377F133D-2D7C-495E-B45C-A0FA1AA2F9AF::net7.0::PulseSurveyV2.Tests.Unit.AnswerControllerTests.PostAnswer_ValidInput_ReturnsCreatedAtAction&lt;/TestId&gt;
-    &lt;/TestAncestor&gt;
-  &lt;/Or&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::8723A6D8-D858-48FB-8A43-981C79873CF4::net7.0::PulseSurveyV2.Test.Controllers.UsersControllerTests.MethodName_Given_Then&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	</wpf:ResourceDictionary>

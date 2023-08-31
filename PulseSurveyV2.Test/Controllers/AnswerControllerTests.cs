@@ -1,4 +1,4 @@
-namespace PulseSurveyV2.Test.Unit;
+namespace PulseSurveyV2.Test.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
