@@ -1,13 +1,11 @@
-using Xunit;
-using Moq;
+namespace PulseSurveyV2.Test.Unit;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PulseSurveyV2.Controllers;
 using PulseSurveyV2.Models;
-using PulseSurveyV2.Interfaces;
+using Xunit;
 using Xunit.Abstractions;
-
-namespace PulseSurveyV2.Tests.Unit;
 
 public class AnswerControllerTests
 {
