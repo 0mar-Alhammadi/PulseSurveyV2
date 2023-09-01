@@ -10,37 +10,43 @@ using PulseSurveyV2.Interfaces;
 
 namespace PulseSurveyV2.Controllers
 {
+    using Threenine.Data;
+    
     [Route("api/[controller]")]
     [ApiController]
     public class AnswersController : ControllerBase
     {
-        private readonly UnifiedContext _context;
+        private readonly IUnitOfWork<UnifiedContext> _uow;
 
-        public AnswersController(UnifiedContext context)
+        public AnswersController(IUnitOfWork<UnifiedContext> uow)
         {
-            _context = context;
+            _uow = uow;
         }
-
+        
         // GET: api/Answers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Answer>>> GetAnswers()
         {
-          if (_context.Answers == null)
+            var repository = _uow.GetRepositoryAsync<Answer>();
+          if (repository == null)
           {
               return NotFound();
           }
-            return await _context.Answers.ToListAsync();
+            var answers = await repository.GetListAsync();
+
+            return Ok(answers.Items);
         }
 
         // GET: api/Answers/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Answer>> GetAnswer(long id)
         {
-          if (_context.Answers == null)
+            var repository = _uow.GetRepositoryAsync<Answer>();
+          if (repository == null)
           {
               return NotFound();
           }
-            var answer = await _context.Answers.FindAsync(id);
+            var answer = await repository.SingleOrDefaultAsync(a => a.AnswerId == id);
 
             if (answer == null)
             {
@@ -56,7 +62,8 @@ namespace PulseSurveyV2.Controllers
         [HttpPost]
         public async Task<ActionResult<AnswerDTO>> PostAnswer(AnswerDTO answerDto)
         {
-          if (_context.Answers == null)
+            var repository = _uow.GetRepositoryAsync<Answer>();
+          if (repository == null)
           {
               return Problem("Entity set 'UnifiedContext.Answers'  is null.");
           }
@@ -67,18 +74,13 @@ namespace PulseSurveyV2.Controllers
                 AnswerRating = answerDto.AnswerRating,
                 AnswerDate = DateTime.UtcNow
             };
-            _context.Answers.Add(answer);
-            await _context.SaveChangesAsync();
+
+            await repository.InsertAsync(answer);
+            await _uow.CommitAsync();
 
             return CreatedAtAction(
                 "GetAnswer", 
                 new { id = answer.AnswerId}, answer);
-        }
-        
-
-        private bool AnswerExists(long id)
-        {
-            return (_context.Answers?.Any(e => e.AnswerId == id)).GetValueOrDefault();
         }
     }
 }

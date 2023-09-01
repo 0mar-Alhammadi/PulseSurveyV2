@@ -50,4 +50,30 @@ public class UsersControllerTests
         var returnValue = Assert.IsType<UserDTO>(actionResult.Value);
         Assert.Equivalent(userDto, returnValue);
     }
+    
+    [Fact]
+    public async Task PostUser_GivenTheRequestIsInvalid_ThenItShouldReturnBadRequest()
+    {
+        // Arrange
+        var uow = new Mock<IUnitOfWork<UnifiedContext>>();
+        var userRepo = new Mock<IRepositoryAsync<User>>();
+        var controller = new UsersController(uow.Object);
+        var userDto = new UserDTO {};
+
+        uow.Setup(u => u.GetRepositoryAsync<User>())
+            .Returns(userRepo.Object)
+            .Verifiable();
+        
+        uow.Setup(u => u.CommitAsync())
+            .Verifiable();
+        
+        // Act
+        var result = await controller.PostUser(userDto);
+
+        // Assert
+        uow.Verify();
+        var actionResult = Assert.IsType<CreatedAtActionResult>(result.Result);
+        var returnValue = Assert.IsType<UserDTO>(actionResult.Value);
+        Assert.Equivalent(userDto, returnValue);
+    }
 }

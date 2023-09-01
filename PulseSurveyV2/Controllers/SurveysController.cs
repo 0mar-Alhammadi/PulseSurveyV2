@@ -9,37 +9,43 @@ using PulseSurveyV2.Models;
 
 namespace PulseSurveyV2.Controllers
 {
+    using Threenine.Data;
+    
     [Route("api/[controller]")]
     [ApiController]
     public class SurveysController : ControllerBase
     {
-        private readonly UnifiedContext _context;
+        private readonly IUnitOfWork<UnifiedContext> _uow;
 
-        public SurveysController(UnifiedContext context)
+        public SurveysController(IUnitOfWork<UnifiedContext> uow)
         {
-            _context = context;
+            _uow = uow;
         }
 
         // GET: api/Surveys
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Survey>>> GetSurveys()
-        {
-          if (_context.Surveys == null)
+        { 
+          var repository = _uow.GetRepositoryAsync<Survey>();
+          
+          if (repository == null)
           {
               return NotFound();
           }
-            return await _context.Surveys.ToListAsync();
+            var surveys = await repository.GetListAsync();
+            return Ok(surveys.Items);
         }
 
         // GET: api/Surveys/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Survey>> GetSurvey(long id)
-        {
-          if (_context.Surveys == null)
+        { 
+            var repository = _uow.GetRepositoryAsync<Survey>(); 
+            if (repository == null)
           {
               return NotFound();
           }
-            var survey = await _context.Surveys.FindAsync(id);
+            var survey = await repository.SingleOrDefaultAsync(s => s.SurveyId == id);
 
             if (survey == null)
             {
@@ -54,7 +60,9 @@ namespace PulseSurveyV2.Controllers
         [HttpPost]
         public async Task<ActionResult<SurveyDTO>> PostSurvey(SurveyDTO surveyDto)
         {
-          if (_context.Surveys == null)
+            var repository = _uow.GetRepositoryAsync<Survey>();
+
+          if (repository == null)
           {
               return Problem("Entity set 'UnifiedContext.Surveys'  is null.");
           }
@@ -66,15 +74,11 @@ namespace PulseSurveyV2.Controllers
               SurveyQuestion = surveyDto.SurveyQuestion,
               SurveyDate = DateTime.UtcNow
           };
-            _context.Surveys.Add(survey);
-            await _context.SaveChangesAsync();
+            await repository.InsertAsync(survey);
+            await _uow.CommitAsync();
 
             return CreatedAtAction("GetSurvey", new { id = survey.SurveyId }, survey);
         }
         
-        private bool SurveyExists(long id)
-        {
-            return (_context.Surveys?.Any(e => e.SurveyId == id)).GetValueOrDefault();
-        }
     }
 }
