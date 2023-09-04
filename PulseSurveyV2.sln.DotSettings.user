@@ -1,7 +1,5 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=81fa685c_002Dd10c_002D495c_002Dbf8c_002D8febe6c28921/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Tests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::8723A6D8-D858-48FB-8A43-981C79873CF4::net7.0::PulseSurveyV2.Test.Controllers.UsersControllerTests.PostUser_GivenTheRequestIsInvalid_ThenItShouldReturnBadRequest&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
+  &lt;ProjectFile&gt;8723A6D8-D858-48FB-8A43-981C79873CF4/d:Controllers/f:UsersControllerTests.cs&lt;/ProjectFile&gt;
 &lt;/SessionState&gt;</s:String>
 	</wpf:ResourceDictionary>
