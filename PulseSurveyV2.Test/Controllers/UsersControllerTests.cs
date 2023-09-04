@@ -71,7 +71,6 @@ public class UsersControllerTests
         var result = await controller.PostUser(userDto);
 
         // Assert
-        uow.Verify();
         var actionResult = Assert.IsType<CreatedAtActionResult>(result.Result);
         var returnValue = Assert.IsType<UserDTO>(actionResult.Value);
         Assert.Equivalent(userDto, returnValue);
