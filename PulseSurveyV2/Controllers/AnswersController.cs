@@ -80,7 +80,7 @@ namespace PulseSurveyV2.Controllers
 
             return CreatedAtAction(
                 "GetAnswer", 
-                new { id = answer.AnswerId}, answer);
+                new { id = answer.AnswerId}, answerDto);
         }
     }
 }

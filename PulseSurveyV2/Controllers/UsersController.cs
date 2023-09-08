@@ -72,7 +72,7 @@ namespace PulseSurveyV2.Controllers
             await repository.InsertAsync(user);
             await _uow.CommitAsync();
 
-            return CreatedAtAction("GetUser", new {id = user.UserId}, user);
+            return CreatedAtAction("GetUser", new {id = user.UserId}, userDto);
         }
     }
 }
